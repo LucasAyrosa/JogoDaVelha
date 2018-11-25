@@ -1,0 +1,46 @@
+.container{
+    /* width: 600px; */
+    /* height: 600px; */
+    /* margin: auto; */
+}
+
+.topo{
+    margin: auto;
+    margin-bottom: 30px;
+    /* text-align: center; */
+}
+
+/* visibilidade do mostrador e das informações */
+#mostrador{
+ display: none;   
+}
+
+#informacoes{
+    margin: auto;
+    width: 300px;
+}
+
+/* estilo do tabuleiro */
+#tabuleiro{
+    width: 270px;
+    height: 270px;
+    margin: auto;
+    display: none;
+}
+
+.quadros{
+    border: 2px solid black;
+    width: 90px;
+    height: 90px;
+    float: left;
+    text-align: center;
+    font-size: 55px;
+}
+
+#botoesFimJogo{
+    display: none;
+}
+
+#divDoisJogadores{
+    display: none;
+}
