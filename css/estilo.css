@@ -1,13 +1,6 @@
-.container{
-    /* width: 600px; */
-    /* height: 600px; */
-    /* margin: auto; */
-}
-
 .topo{
     margin: auto;
     margin-bottom: 30px;
-    /* text-align: center; */
 }
 
 /* visibilidade do mostrador e das informações */
@@ -37,10 +30,6 @@
     font-size: 55px;
 }
 
-#botoesFimJogo{
-    display: none;
-}
-
-#divDoisJogadores{
+#botoesFimJogo, #divDoisJogadores{
     display: none;
 }
