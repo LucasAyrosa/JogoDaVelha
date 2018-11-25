@@ -1,19 +1,5 @@
 function jogadaComputador() {
-    // const quadros = $(".quadros");
-    // let adversario = [];
-    // let computador = [];
-    // let jogadasPossiveis = [];
     let jogada;
-    // preencher espacos ocupados pelo jojgador, pelo computador e espacos não ocupados
-    // for (let i  = 0; i   < quadros.length; i++) {
-    //     if ($(quadros[i]).html() == jogador1.peca) {
-    //         adversario.push(quadros[i].id);
-    //     } else if ($(quadros[i]).html() == jogador2.peca) {
-    //         computador.push(quadros[i].id);
-    //     } else {
-    //         jogadasPossiveis.push(quadros[i].id);
-    //     }
-    // }
 
     // verifica tentativa de vitoria
     jogada = escolheJogada(jogador2.peca);
@@ -77,7 +63,7 @@ function escolheJogada(peca) {
             )
         ) 
     {
-        return 'b1';
+        return 'b2';
     }
     if (a1 == peca) {
         if (a1 == a2 && !a3) {
