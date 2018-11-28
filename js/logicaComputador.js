@@ -98,6 +98,8 @@ function escolheJogada(peca) {
     }
     if ((!c3) &&
             (
+                (c2 == peca && c1 == peca) ||
+                (b3 == peca && a3 == peca)
             )
         )
     {
