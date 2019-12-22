@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Jodo da velha</title>
+	<meta charset="utf-8">
+
+	<!-- materialize -->
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<!-- estilo do jogo -->
+	<link rel="stylesheet" href="css/estilo.css">
+
+	<!-- responsividade -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="topo">
+			<h1 class="center-align">Jogo da velha</h1>
+
+			<p id="mostrador" class="center-align"></p>
+		</div>
+
+		<div id="informacoes" class="card-panel z-depth-3">
+			<div class="row">
+				<div class="input-field">
+					<input id="nomeJogador1" type="text"></input>
+					<label for="nomeJogador1">Nome do jogador</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field">
+					<select id="pecaJogador1">
+						<option value="X">X (xis)</option>
+						<option value="O">O (circulo)</option>
+					</select>
+					<label>Peça do jogador</label>
+				</div>
+			</div>
+
+			<p>
+				<label for="cbxDoisJogadores">
+					<input type="checkbox" id="cbxDoisJogadores" />
+					<span id="check">Dois jogadores</span>
+				</label>
+			</p>
+
+			<!-- exibir se dois jogadores estiver selecionado -->
+			<div class="row" id="divDoisJogadores">
+				<div class="input-field">
+					<input id="nomeJogador2" type="text"></input>
+					<label for="nomeJogador2">Nome do segundo jogador</label>
+				</div>
+			</div>
+
+			<a id="btnIniciarJogo" class="waves-effect waves-light btn">Jogar</a>
+		</div>
+
+		<div id="tabuleiro">
+			<div id="a1" class="quadros"></div>
+			<div id="a2" class="quadros"></div>
+			<div id="a3" class="quadros"></div>
+
+			<div id="b1" class="quadros"></div>
+			<div id="b2" class="quadros"></div>
+			<div id="b3" class="quadros"></div>
+
+			<div id="c1" class="quadros"></div>
+			<div id="c2" class="quadros"></div>
+			<div id="c3" class="quadros"></div>
+		</div>
+
+		<div id="botoesFimJogo" class="center-align">
+			<br>
+			<a id="btnReiniciarJogo" class="waves-effect waves-light btn">Reiniciar</a>
+			<a id="btnVoltarMenu" class="waves-effect waves-light btn">Menu</a>
+		</div>
+	</div>
+</body>
+
+<!-- jquery -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<!-- materialize -->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<!-- codigo do jogo -->
+<script type="text/javascript" src="js/principal.js"></script>
+<script type="text/javascript" src="js/controle.js"></script>
+<script type="text/javascript" src="js/logicaVencedor.js"></script>
+<script type="text/javascript" src="js/logicaComputador.js"></script>
+
+</html>
