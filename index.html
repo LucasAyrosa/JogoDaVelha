@@ -32,7 +32,7 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<!-- <div class="row">
 				<div class="input-field">
 					<select id="pecaJogador1">
 						<option value="X">X (xis)</option>
@@ -40,7 +40,7 @@
 					</select>
 					<label>Peça do jogador</label>
 				</div>
-			</div>
+			</div> -->
 
 			<p>
 				<label for="cbxDoisJogadores">
@@ -60,21 +60,10 @@
 			<a id="btnIniciarJogo" class="waves-effect waves-light btn">Jogar</a>
 		</div>
 
-		<div id="tabuleiro">
-			<div id="a1" class="quadros"></div>
-			<div id="a2" class="quadros"></div>
-			<div id="a3" class="quadros"></div>
-
-			<div id="b1" class="quadros"></div>
-			<div id="b2" class="quadros"></div>
-			<div id="b3" class="quadros"></div>
-
-			<div id="c1" class="quadros"></div>
-			<div id="c2" class="quadros"></div>
-			<div id="c3" class="quadros"></div>
-		</div>
+		<div id="game-board"></div>
 
 		<div id="botoesFimJogo" class="center-align">
+			<p id="winner"></p>
 			<br>
 			<a id="btnReiniciarJogo" class="waves-effect waves-light btn">Reiniciar</a>
 			<a id="btnVoltarMenu" class="waves-effect waves-light btn">Menu</a>
@@ -87,9 +76,13 @@
 <!-- materialize -->
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <!-- codigo do jogo -->
-<script type="text/javascript" src="js/principal.js"></script>
-<script type="text/javascript" src="js/controle.js"></script>
-<script type="text/javascript" src="js/logicaVencedor.js"></script>
-<script type="text/javascript" src="js/logicaComputador.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- <script>
+	game.init(document.getElementById('game-board'));
+	game.start();
+</script> -->
+<!-- <script type="text/javascript" src="js/controle.js"></script> -->
+<!-- <script type="text/javascript" src="js/logicaVencedor.js"></script> -->
+<!-- <script type="text/javascript" src="js/logicaComputador.js"></script> -->
 
 </html>
