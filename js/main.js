@@ -1,26 +1,45 @@
 const game = {
     board: ['', '', '', '', '', '', '', '', ''],
+    noMoves: function () {
+        return !(this.board.some(e => e === ''))
+    },
 
     simbols: {
         pieces: ['X', 'O'],
+        player: [],
         turn: 0,
         change: function () {
             this.turn = (this.turn === 0 ? 1 : 0)
         }
     },
 
-    player: [],
     computer: {
         enable: true,
         choosePlay: function () {
-
-            // game.makePlay();
+            let bestScore = -Infinity;
+            let move;
+            for (let i = 0; i < game.board.length; i++) {
+                if (game.board[i] === '') {
+                    game.board[i] = game.simbols.pieces[1];
+                    let score = minimax(game.board, 0, false);
+                    game.board[i] = '';
+                    if (score > bestScore) {
+                        bestScore = score;
+                        move = i;
+                    }
+                }
+            }
+            game.makePlay(move);
         }
+    },
+
+    online: {
+        enable: false,
+        yourTurn: -1
     },
 
     container: null,
     panel: null,
-
     gameOver: false,
 
     winnerSequences: [
@@ -41,16 +60,17 @@ const game = {
 
     makePlay: function (position) {
         if (this.gameOver) return false;
+        if (this.online.enable && this.online.yourTurn !== this.simbols.turn) return false;
         if (this.board[position] === '') {
             this.board[position] = this.simbols.pieces[this.simbols.turn];
             this.draw();
             let winnerSequencesIndex = this.checkWinnerSequences(this.simbols.pieces[this.simbols.turn]);
-            if (winnerSequencesIndex >= 0 || !(this.board.some(e => e === ''))) {
+            if (winnerSequencesIndex >= 0 || this.noMoves()) {
                 this.gameIsOver(winnerSequencesIndex);
             } else {
                 this.simbols.change();
                 this.panel.innerHTML = `${this.player[this.simbols.turn]}, é sua vez!`;
-                if (this.computer.enable) this.computer.choosePlay();
+                if (this.computer.enable && this.simbols.turn === 1) this.computer.choosePlay();
             }
             return true;
         } else {
@@ -64,8 +84,7 @@ const game = {
             if (this.board[this.winnerSequences[i][0]] == simbol &&
                 this.board[this.winnerSequences[i][1]] == simbol &&
                 this.board[this.winnerSequences[i][2]] == simbol) {
-                console.log('Winner sequence INDEX: ' + i)
-                return i
+                return 1
             }
         };
         return -1;
@@ -97,6 +116,43 @@ const game = {
 
     write: function (text) {
         this.panel.innerHTML = text;
+    }
+}
+
+function minimax(board, depth, isMaximazing) {
+    const scores = {
+        'O': 1,
+        'X': -1,
+        'tie': 0
+    };
+    let result = game.checkWinnerSequences(game.simbols.pieces[0]) == 1 ? 'X'
+        : game.checkWinnerSequences(game.simbols.pieces[1]) == 1 ? 'O'
+            : game.noMoves() ? 'tie' : null;
+    if (result !== null) {
+        return scores[result];
+    }
+    if (isMaximazing) {
+        let bestScore = -Infinity;
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] === '') {
+                board[i] = game.simbols.pieces[1];
+                let score = minimax(board, depth + 1, false);
+                board[i] = '';
+                if (score > bestScore) bestScore = score;
+            }
+        }
+        return bestScore;
+    } else {
+        let bestScore = Infinity;
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] === '') {
+                board[i] = game.simbols.pieces[0];
+                let score = minimax(board, depth + 1, true);
+                board[i] = '';
+                if (score < bestScore) bestScore = score;
+            }
+        }
+        return bestScore
     }
 }
 

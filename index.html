@@ -19,7 +19,7 @@
 	<div class="container">
 
 		<div class="topo">
-			<h1 class="center-align">Jogo da velha</h1>
+			<h1 class="center-align">Jogo da velha 👵</h1>
 
 			<p id="mostrador" class="center-align"></p>
 		</div>
@@ -32,15 +32,15 @@
 				</div>
 			</div>
 
-			<!-- <div class="row">
+			<div class="row">
 				<div class="input-field">
-					<select id="pecaJogador1">
+					<select id="slcPeca" onchange="game.simbols.pieces.reverse()">
 						<option value="X">X (xis)</option>
 						<option value="O">O (circulo)</option>
 					</select>
 					<label>Peça do jogador</label>
 				</div>
-			</div> -->
+			</div>
 
 			<p>
 				<label for="cbxDoisJogadores">
@@ -77,12 +77,5 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <!-- codigo do jogo -->
 <script type="text/javascript" src="js/main.js"></script>
-<!-- <script>
-	game.init(document.getElementById('game-board'));
-	game.start();
-</script> -->
-<!-- <script type="text/javascript" src="js/controle.js"></script> -->
-<!-- <script type="text/javascript" src="js/logicaVencedor.js"></script> -->
-<!-- <script type="text/javascript" src="js/logicaComputador.js"></script> -->
 
 </html>
